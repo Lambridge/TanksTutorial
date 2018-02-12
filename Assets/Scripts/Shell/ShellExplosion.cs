@@ -46,7 +46,7 @@ public class ShellExplosion : MonoBehaviour
         m_ExplosionParticles.Play();
         m_ExplosionAudio.Play();
 
-        Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.duration);
+        Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.main.duration);
         Destroy(gameObject);
     }
 
@@ -60,7 +60,7 @@ public class ShellExplosion : MonoBehaviour
 
         float relativeDistance = (m_ExplosionRadius - explosionDistance) / m_ExplosionRadius;
 
-        float damage = relativeDistance = m_MaxDamage;
+        float damage = relativeDistance * m_MaxDamage;
 
         damage = Mathf.Max(0f, damage);
 
